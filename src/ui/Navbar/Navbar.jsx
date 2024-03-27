@@ -3,7 +3,7 @@
 import "./Navbar.sass"
 import Link from "next/link"
 import Image from "next/image";
-import logo from "./logo.svg"
+import logo from "./../../assets/img/logo.svg"
 import { usePathname } from "next/navigation";
 import { useSelector,useDispatch } from "react-redux";
 import { CiUser } from "react-icons/ci";
@@ -18,8 +18,8 @@ let Navbar = ()=>{
             <div className="logo">
             <Link href={"/"}>
                 <Image src={logo}
-                    width={60}
-                    height={60}
+                    width={70}
+                    height={70}
                     alt=""
                 />
             </Link>
