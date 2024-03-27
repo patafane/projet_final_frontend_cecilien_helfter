@@ -1,3 +1,5 @@
+import Navbar from "@/ui/Navbar/Navbar";
+import StoreProvider from "./StoreProvider";
 import "./globals.sass";
 export const metadata = {
   title: "Create Next App",
@@ -6,8 +8,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <StoreProvider>
+      <html lang="en">
+        <body>
+          <Navbar/>
+          {children}
+        </body>
+      </html>
+    </StoreProvider>
   );
 }
