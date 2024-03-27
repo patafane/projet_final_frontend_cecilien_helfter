@@ -1,0 +1,26 @@
+.home
+  min-height: 95vh
+  display: grid
+  grid-template-columns: auto auto auto
+  justify-content: center
+  gap: 50px
+  padding-block: 50px
+  animation: test 2s 
+  @keyframes test
+        0%
+          opacity: 0  
+          transform: translateX(100%)
+        50%
+          opacity: 0  
+          transform: translateX(100%)
+        100%
+          opacity: 1
+          transform: translateX(0%)
+  .testCard
+    width: 400px
+    height: 400px
+    background-color: red
+    h2
+      font-size: 1em
+    img
+      width: 100%

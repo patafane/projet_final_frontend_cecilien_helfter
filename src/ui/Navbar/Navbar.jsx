@@ -12,7 +12,6 @@ let Navbar = ()=>{
     const pathName = usePathname()
     const connect = useSelector((state)=>state.connect.value)
     const dispatch = useDispatch()
-    console.log(connect);
     return(
         <nav>
             <div className="logo">
@@ -28,7 +27,7 @@ let Navbar = ()=>{
                 <Link href="/" className={pathName === "/" ? "active" : "" }>
                     Home
                 </Link>
-                <Link href="/categories" className={pathName === "/categeories" ? "active" : ""}>
+                <Link href="/categories" className={pathName === "/categories" ? "active" : ""}>
                     Categories
                 </Link>
                 <Link href="/products" className={pathName === "/preoducts" ? "active" : ""}>
