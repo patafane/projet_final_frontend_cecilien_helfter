@@ -16,7 +16,9 @@ let Page = ()=>{
                 <h1>All our products</h1>
                 <div className="shop">
                     {data.map((element,index)=>(
+                        element.title.includes("Drive")===false && element.title.includes("212")===false && element.title.includes("New") === false && element.title.includes("fghjm")===false?
                         <Card article={element} key={index}/>
+                        :""
                     ))}
                 </div>
             </div>

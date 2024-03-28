@@ -15,8 +15,9 @@ let Page = ()=>{
         <div className="categories">
             <div className="content">
                 {data.map((element,index)=>(
-                    <Link href={"/categories/"+element.name}>
-                        <div className="categorie" key={index}>
+                    element.name !="haha" ?
+                    <Link href={"/categories/"+element.name} key={index}>
+                        <div className="categorie">
                             <div className="imgContainer">
                                 <img src={element.image} alt="" />
                             </div>
@@ -25,6 +26,7 @@ let Page = ()=>{
                             </div>
                         </div>
                     </Link>
+                    :""
                 ))}
             </div>
         </div>
