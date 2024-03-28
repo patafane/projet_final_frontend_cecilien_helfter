@@ -33,7 +33,7 @@ export default function Home() {
             <h2 className="bestSellers">Best sellers</h2>
             <div className="products">
               {data.map((element,index)=>(
-                element.price<=23 ?
+                element.price<=23 && element.title.includes("Drive")===false && element.title.includes("212")===false && element.title.includes("New") === false && element.title.includes("fghjm")===false && element.title.includes("addidas")===false ?
                 <Card article={element} key={index}/>:""
               ))}
             </div>

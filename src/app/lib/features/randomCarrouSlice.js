@@ -8,7 +8,7 @@ let randomCarrouSlice = createSlice({
     reducers:{
         fillValue:(state,action)=>{
             state.value = action.payload
-            state.value = state.value.filter(element=>element.title.includes("Drive")===false && element.title.includes("212")===false && element.title.includes("New") === false)
+            state.value = state.value.filter(element=>element.title.includes("Drive")===false && element.title.includes("212")===false && element.title.includes("New") === false && element.title.includes("fghjm")===false && element.title.includes("addidas")===false)
         },
         fillRandom:(state)=>{
             for(let i =0;i<5;i++){
