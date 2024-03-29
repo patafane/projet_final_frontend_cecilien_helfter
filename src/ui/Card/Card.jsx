@@ -5,13 +5,13 @@ let Card = (props)=>{
     return(
         <div className="card">
             <div className="imgContainer">
-                <img src={props.article.images[0]} alt="" />
-                <div className={"truc"+" "+props.article.category.name}>
+                <img src={props.article.image} alt="" />
+                <div className={"truc"+" "+props.article.category}>
                     <Link href={"/products/"+props.article.id}><FaSearch/></Link>
                 </div>
             </div>
             <div className="title">
-                <h2>{props.article.title}</h2>
+                <h2>{props.article.name}</h2>
                 <div className="infos">
                     <span className="priceTag">{props.article.price}€</span>
                     <button className="addCart">add to cart</button>

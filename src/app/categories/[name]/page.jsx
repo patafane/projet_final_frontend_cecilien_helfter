@@ -3,18 +3,19 @@ import Card from "@/ui/Card/Card"
 import "./SingleCat.sass"
 import { useParams } from "next/navigation"
 import { useState,useEffect } from "react"
+import {  useSelector } from "react-redux"
 let Page = ()=>{
     const catName = useParams()
-    const [data,setData] = useState([])
+    const data = useSelector((state)=>state.bikes.value)
     const [dataCat,setDataCat] = useState([])
+    // useEffect(()=>{
+    //     fetch('https://api.escuelajs.co/api/v1/products')
+    //     .then((response)=>response.json())
+    //     .then((response)=>setData(response))
+    //     .catch((error)=>console.log(error))
+    // },[])
     useEffect(()=>{
-        fetch('https://api.escuelajs.co/api/v1/products')
-        .then((response)=>response.json())
-        .then((response)=>setData(response))
-        .catch((error)=>console.log(error))
-    },[])
-    useEffect(()=>{
-        setDataCat(data.filter(element=>element.category.name === catName.name))
+        setDataCat(data.filter(element=>element.category === catName.name))
     },[data])
     return(
         <div className="singleCat">

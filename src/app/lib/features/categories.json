@@ -1,0 +1,18 @@
+[
+    {
+      "name": "sport",
+      "image": "https://www.harley-davidson.com/content/dam/h-d/images/category-images/2024/tall-hero/sport-thd.jpg?impolicy=myresize&rw=1400"
+    },
+    {
+      "name": "touring",
+      "image": "https://www.harley-davidson.com/content/dam/h-d/images/category-images/2024/tall-hero/touring-thd.jpg?impolicy=myresize&rw=1400"
+    },
+    {
+      "name": "cruiser",
+      "image": "https://www.harley-davidson.com/content/dam/h-d/images/category-images/2024/tall-hero/cruiser-thd.jpg?impolicy=myresize&rw=1400"
+    },
+    {
+      "name": "adventure",
+      "image": "https://www.harley-davidson.com/content/dam/h-d/images/category-images/2024/tall-hero/adv-thd.jpg?impolicy=myresize&rw=1400"
+    }
+  ]

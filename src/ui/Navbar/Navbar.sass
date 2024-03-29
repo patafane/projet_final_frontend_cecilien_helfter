@@ -1,14 +1,13 @@
 nav
-    height: 5vh
+    // height: 5vh
     background-color: rgba(246,246,246,255)
     padding-inline: 100px
-    overflow: hidden
     font-size: 1.3em
-    padding-block: 5px
+    padding-block: 20px
     animation: test2 1s
     display: flex
     align-items: center
-    justify-content: space-around
+    justify-content: space-between
     position: sticky
     top: 0
     z-index: 1
@@ -22,10 +21,18 @@ nav
     .logo
         display: flex
         align-items: center
-    .links
-        display: flex
-        justify-content: space-between
-        gap: 15px
+        gap: 20px
+        .title
+            display: flex
+            align-items: center
+            flex-direction: column
+            h1
+                font-size: 2em
+                font-weight: 0
+            h6
+                padding-top: 3%
+                font-size: 0.1em
+                padding-left: 20%
         a
             color: black
             text-decoration: none

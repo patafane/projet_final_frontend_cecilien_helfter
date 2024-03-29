@@ -5,8 +5,7 @@ import { fillRandom } from "@/app/lib/features/randomCarrouSlice"
 import Link from "next/link"
 import { FaSearch } from "react-icons/fa";
 let Carrousel = ()=>{
-    const randomCarrou = useSelector((state)=>state.randomCarrou.random)
-    const data = useSelector((state)=>state.randomCarrou.value)
+    const randomCarrou = useSelector((state)=>state.bikes.random)
     const [elementActive,setElementActive] = useState(0)
     useEffect(()=>{
         setTimeout(() => {
@@ -19,13 +18,14 @@ let Carrousel = ()=>{
     },[elementActive])
     return(
         <div className="carrousel">
-        {randomCarrou[10] ?
+        {randomCarrou[0] ?
             <div className="carrouContainer" style={{transform:"translateX(-"+elementActive*100+"%)"}}>
                 <div className="carrouElement">
                     <div className="imgContainer">
-                        <img src={randomCarrou[10].images[0]} alt="" />
+                        <img src={randomCarrou[0].image} alt="" />
                         <div className="truc">
-                            <Link href={"/products/"+randomCarrou[10].id}>
+                            <h2>{randomCarrou[0].name}</h2>
+                            <Link href={"/products/"+randomCarrou[0].id}>
                                 <FaSearch/>
                             </Link>
                         </div>
@@ -33,9 +33,10 @@ let Carrousel = ()=>{
                 </div>
                 <div className="carrouElement">
                     <div className="imgContainer">
-                        <img src={randomCarrou[11].images[0]} alt="" />
+                        <img src={randomCarrou[1].image} alt="" />
                         <div className="truc">
-                            <Link href={"/products/"+randomCarrou[11].id}>
+                            <h2>{randomCarrou[1].name}</h2>
+                            <Link href={"/products/"+randomCarrou[1].id}>
                                 <FaSearch/>
                             </Link>
                         </div>
@@ -43,9 +44,10 @@ let Carrousel = ()=>{
                 </div>
                 <div className="carrouElement">
                     <div className="imgContainer">
-                        <img src={randomCarrou[12].images[0]} alt="" />
+                        <img src={randomCarrou[2].image} alt="" />
                         <div className="truc">
-                            <Link href={"/products/"+randomCarrou[12].id}>
+                            <h2>{randomCarrou[2].name}</h2>
+                            <Link href={"/products/"+randomCarrou[2].id}>
                                 <FaSearch/>
                             </Link>
                         </div>
@@ -53,9 +55,10 @@ let Carrousel = ()=>{
                 </div>
                 <div className="carrouElement">
                     <div className="imgContainer">
-                        <img src={randomCarrou[13].images[0]} alt="" />
+                        <img src={randomCarrou[3].image} alt="" />
                         <div className="truc">
-                            <Link href={"/products/"+randomCarrou[13].id}>
+                            <h2>{randomCarrou[3].name}</h2>
+                            <Link href={"/products/"+randomCarrou[3].id}>
                                 <FaSearch/>
                             </Link>
                         </div>
@@ -63,9 +66,10 @@ let Carrousel = ()=>{
                 </div>
                 <div className="carrouElement">
                     <div className="imgContainer">
-                        <img src={randomCarrou[14].images[0]} alt="" />
+                        <img src={randomCarrou[4].image} alt="" />
                         <div className="truc">
-                            <Link href={"/products/"+randomCarrou[14].id}>
+                            <h2>{randomCarrou[4].name}</h2>
+                            <Link href={"/products/"+randomCarrou[4].id}>
                                 <FaSearch/>
                             </Link>
                         </div>

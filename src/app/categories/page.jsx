@@ -1,21 +1,21 @@
 'use client'
 import "./categories.sass"
 import { useState,useEffect } from "react"
+import { useSelector } from "react-redux"
 import Link from "next/link"
 let Page = ()=>{
-    const [data,setData] = useState([])
-    useEffect(()=>{
-        fetch('https://api.escuelajs.co/api/v1/categories')
-        .then((response)=>response.json())
-        .then((response)=>setData(response))
-        .catch((error)=>console.log(error))
-    },[])
-    console.log(data);
+    const data = useSelector((state)=>state.bikes.categories)
+    // useEffect(()=>{
+    //     fetch('https://api.escuelajs.co/api/v1/categories')
+    //     .then((response)=>response.json())
+    //     .then((response)=>setData(response))
+    //     .catch((error)=>console.log(error))
+    // },[])
+    // console.log(data);
     return(
         <div className="categories">
             <div className="content">
                 {data.map((element,index)=>(
-                    element.name !="haha" ?
                     <Link href={"/categories/"+element.name} key={index}>
                         <div className="categorie">
                             <div className="imgContainer">
@@ -26,7 +26,6 @@ let Page = ()=>{
                             </div>
                         </div>
                     </Link>
-                    :""
                 ))}
             </div>
         </div>
