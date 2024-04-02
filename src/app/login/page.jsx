@@ -18,7 +18,7 @@ let Page = ()=>{
                 connect ? <p>you are already connected</p>
                 :
                 <div className="content">
-                    <form>
+                    <div className="form">
                         <h1>Login</h1>
                         <div className="nameInpt">
                             {/* <label htmlFor="nom">User name : </label> */}
@@ -33,7 +33,7 @@ let Page = ()=>{
                             <p>or</p>
                             <button className="googleBtn" onClick={handleGoogleLogin}><FaGoogle/></button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             }
         </div>
