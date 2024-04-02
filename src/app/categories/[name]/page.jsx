@@ -6,14 +6,24 @@ import { useState,useEffect } from "react"
 import {  useSelector } from "react-redux"
 let Page = ()=>{
     const catName = useParams()
-    const data = useSelector((state)=>state.bikes.value)
+    const [data,setData] = useState([])
     const [dataCat,setDataCat] = useState([])
-    // useEffect(()=>{
-    //     fetch('https://api.escuelajs.co/api/v1/products')
-    //     .then((response)=>response.json())
-    //     .then((response)=>setData(response))
-    //     .catch((error)=>console.log(error))
-    // },[])
+    const [dataCheck,setDataCheck] = useState(false)
+    useEffect(()=>{
+        const url = 'https://api.jsonsilo.com/254364c9-0cfb-44c5-b9db-2faef50250af'
+        const options = {
+            method:'GET',
+            headers:{
+                'X-SILO-KEY': '2SVi3lulFOfA19n5XQdSi6xIgZhk9bznPQxOuShd0t',
+                'Content-Type': 'application/json'
+            }
+        }
+        fetch(url,options)
+        .then((response)=>response.json())
+        .then((response)=>setData(response))
+        .then(setDataCheck(true))
+        .catch((error)=>console.log(error))
+    },[])
     useEffect(()=>{
         setDataCat(data.filter(element=>element.category === catName.name))
     },[data])

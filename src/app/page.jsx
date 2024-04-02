@@ -7,17 +7,25 @@ import { useDispatch,useSelector } from "react-redux";
 import { fillRandom } from "./lib/features/bikesSlice";
 export default function Home() {
   const dispatch = useDispatch()
-  const data =useSelector((state)=>state.bikes.value)
-  const random = useSelector((state)=>state.bikes.random)
+  const [data,setData] = useState([])
   const [dataFilter,setDataFilter] = useState([])
-  // const [dataCheck,setDataCheck] = useState(false)
-  // useEffect(()=>{
-  //   fetch('https://api.escuelajs.co/api/v1/products')
-  //   .then((response)=>response.json())
-  //   .then((response)=>setData(response))
-  //   .then(setDataCheck(true))
-  //   .catch((error)=>console.log(error))
-  // },[])
+  const [dataCheck,setDataCheck] = useState(false)
+  const random = useSelector((state)=>state.bikes.random)
+useEffect(()=>{
+    const url = 'https://api.jsonsilo.com/254364c9-0cfb-44c5-b9db-2faef50250af'
+    const options = {
+        method:'GET',
+        headers:{
+            'X-SILO-KEY': '2SVi3lulFOfA19n5XQdSi6xIgZhk9bznPQxOuShd0t',
+            'Content-Type': 'application/json'
+        }
+    }
+    fetch(url,options)
+    .then((response)=>response.json())
+    .then((response)=>setData(response))
+    .then(setDataCheck(true))
+    .catch((error)=>console.log(error))
+},[])
   useEffect(()=>{
       dispatch(fillRandom())
   },[])
