@@ -4,13 +4,30 @@ import { setConnectTrue } from "../lib/features/ConnectSlice"
 import { useSelector,useDispatch } from "react-redux"
 import { FaGoogle } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 let Page = ()=>{
+    const [errorLog,setErrorLog] = useState(false)
+    const [userNameValue,setUserNameValue] = useState("")
+    const [passwordValue,setPasswordValue] = useState("")
     const connect = useSelector((state)=>state.connect.value)
+    const users = useSelector((state)=>state.users.value)
     const router = useRouter()
     const dispatch = useDispatch()
     let handleGoogleLogin = ()=>{
         router.push("/")
         dispatch(setConnectTrue())
+    }
+    let handleLogin = ()=>{
+        users.map((element)=>{
+            if(userNameValue === element.username && passwordValue === element.password){
+                dispatch(setConnectTrue())
+                router.push("/")
+                setErrorLog(false)
+            }else{
+                setErrorLog(true)
+            }
+        })
     }
     return(
         <div className="login">
@@ -21,15 +38,19 @@ let Page = ()=>{
                     <div className="form">
                         <h1>Login</h1>
                         <div className="nameInpt">
-                            {/* <label htmlFor="nom">User name : </label> */}
-                            <input type="text" name="nom" id="nom" placeholder="Username"/>
+                            <input type="text" name="nom" id="nom" placeholder="Username" onChange={(e)=>setUserNameValue(e.target.value)}/>
                         </div>
                         <div className="passInpt">
-                            {/* <label htmlFor="password">Password : </label> */}
-                            <input type="password" name="password" id="password" placeholder="Password"/>
+                            <input type="password" name="password" id="password" placeholder="Password" onChange={(e)=>setPasswordValue(e.target.value)}/>
+                        </div>
+                        <div className="errorLog">
+                            {errorLog ? <span>invalid values</span> : ""}
+                        </div>
+                        <div className="signIn">
+                            <span>don't have an account? <Link href={"/signin"}>sign in</Link> </span>
                         </div>
                         <div className="btns">
-                            <button className="loginBtn">login</button>
+                            <button className="loginBtn" onClick={handleLogin}>login</button>
                             <p>or</p>
                             <button className="googleBtn" onClick={handleGoogleLogin}><FaGoogle/></button>
                         </div>

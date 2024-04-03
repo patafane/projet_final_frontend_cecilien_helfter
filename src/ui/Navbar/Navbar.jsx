@@ -18,7 +18,6 @@ let Navbar = ()=>{
             <div className="logo">
                 <div className="title">
                     <h1 className={fontTest.className}>&#60;MOLENBIKE&#62;</h1>
-                    <h6>Unoficial harley reseler</h6>
                 </div>
                 <Link href="/" className={pathName === "/" ? "active" : "" }>
                     Home
