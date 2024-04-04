@@ -2,8 +2,12 @@
 import "./SingleProduct.sass"
 import { useParams } from "next/navigation"
 import { useState,useEffect } from "react"
-import { useSelector } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
+import { addCart } from "@/app/lib/features/cartSlice"
+import { addFav } from "@/app/lib/features/favSlice"
 let Page = ()=>{
+    const dispatch = useDispatch()
+    const connect = useSelector((state)=>state.connect.value)
     const indexParams = useParams()
     const [data,setData] = useState([])
     const [dataCheck,setDataCheck] = useState(false)
@@ -35,6 +39,36 @@ let Page = ()=>{
                                 <h1>{data[indexParams.id].name}</h1>
                                 <p>{data[indexParams.id].description}</p>
                                 <h3>Specs:</h3>
+                                <div className="specs">
+                                    <div className="year">
+                                        Year : {data[indexParams.id].year}
+                                    </div>
+                                    <div className="motor">
+                                        Motor : {data[indexParams.id].motor}
+                                    </div>
+                                    <div className="displacement">
+                                        Displacement : {data[indexParams.id].displacement}cc
+                                    </div>
+                                    <div className="power">
+                                        Power : {data[indexParams.id].horsepower}HPS
+                                    </div>
+                                    <div className="fuel">
+                                        Fuel tank capacity : {data[indexParams.id].fuel_capacity} 
+                                    </div>
+                                    <div className="weight">
+                                        Weight : {data[indexParams.id].weight}
+                                    </div>
+                                    <div className="break">
+                                        Brake system : {data[indexParams.id].brake_system}
+                                    </div>
+                                    <div className="price">
+                                        Price : {data[indexParams.id].price}€
+                                    </div>
+                                </div>
+                                <div className="btns">
+                                    <button className="addCart" onClick={connect ? ()=>{dispatch(addCart(data[indexParams.id]))}: ""}>Add to cart</button>
+                                    <button className="favBtn" onClick={()=>dispatch(addFav(data[indexParams.id]))}>Add to Favorite</button>
+                                </div>
                             </div>
                         </div>
                 </div>

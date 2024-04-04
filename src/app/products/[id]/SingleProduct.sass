@@ -11,12 +11,41 @@
                     width: 100%
             .infos
                 width: 50%
-                background-color: rgb(225, 225, 225)
-                height: 500px
-                padding: 10px
+                background-color: rgba(246,246,246,255)
+                padding-inline: 10px
+                padding-block: 40px
                 border-radius: 10px
                 h1
                     text-align: center
                 p
                     padding-inline: 10%
                     margin-block: 20px
+                .specs
+                    display: flex
+                    flex-direction: column
+                    gap: 15px
+                    padding-top: 10px
+                    padding-inline: 50px
+                .btns
+                    display: flex
+                    justify-content: space-around
+                    padding-block: 20px
+                    .addCart
+                        padding: 5px
+                        border: solid 1px black
+                        background-color: transparent
+                        border-radius: 5px
+                        &:hover
+                            color: white
+                            background-color: black
+                        &:active
+                            background-color: white
+                    .favBtn
+                        padding: 5px
+                        border: solid 1px black
+                        background-color: transparent
+                        border-radius: 5px
+                        &:hover
+                            color: white
+                            background-color: rgb(220, 51, 51)
+                            border: solid 1px rgb(220, 51, 51)
