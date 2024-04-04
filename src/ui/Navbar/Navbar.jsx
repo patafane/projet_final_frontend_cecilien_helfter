@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 const fontTest = localFont({src:"./../../assets/fonts/Black Streamer.ttf"})
 import { IoCartSharp } from "react-icons/io5"
 import { setActiveTrue,deconect } from "@/app/lib/features/cartSlice";
+import { removeAllFav } from "@/app/lib/features/favSlice";
 let Navbar = ()=>{
     const pathName = usePathname()
     const connect = useSelector((state)=>state.connect.value)
@@ -17,10 +18,10 @@ let Navbar = ()=>{
     const dispatch = useDispatch()
     const router = useRouter()
     const handleDeconect = ()=>{
-        cart.map((element,index)=>{
             dispatch(deconect())
             dispatch(setConnectFalse())
-        })
+            dispatch(removeAllFav())
+            router.push("/")
     }
     return(
         <nav>
@@ -41,7 +42,7 @@ let Navbar = ()=>{
             <div className="userInfos">
                 {connect ? 
                 <div>
-                    <Link href={"/"}>
+                    <Link href={"/user"}>
                         <CiUser/>
                     </Link>
                     <button onClick={handleDeconect}>log out</button>

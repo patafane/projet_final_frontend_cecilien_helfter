@@ -4,10 +4,11 @@ import { useParams } from "next/navigation"
 import { useState,useEffect } from "react"
 import { useSelector,useDispatch } from "react-redux"
 import { addCart } from "@/app/lib/features/cartSlice"
-import { addFav } from "@/app/lib/features/favSlice"
+import { addFav,removeFromFav} from "@/app/lib/features/favSlice"
 let Page = ()=>{
     const dispatch = useDispatch()
     const connect = useSelector((state)=>state.connect.value)
+    const fav = useSelector((state)=>state.favorite.value)
     const indexParams = useParams()
     const [data,setData] = useState([])
     const [dataCheck,setDataCheck] = useState(false)
@@ -27,6 +28,10 @@ let Page = ()=>{
         .catch((error)=>console.log(error))
     },[])
     console.log(data);
+    let handleFav = ()=>{
+        dispatch(addFav(data[indexParams.id]))
+        console.log(fav)
+    }
     return(
         <div className="singleProduct">
             {data[indexParams.id] ? 
@@ -67,7 +72,10 @@ let Page = ()=>{
                                 </div>
                                 <div className="btns">
                                     <button className="addCart" onClick={connect ? ()=>{dispatch(addCart(data[indexParams.id]))}: ""}>Add to cart</button>
-                                    <button className="favBtn" onClick={()=>dispatch(addFav(data[indexParams.id]))}>Add to Favorite</button>
+                                    {fav.includes(data[indexParams.id]) ? 
+                                        <button className="favBtn" onClick={()=>dispatch(removeFromFav(fav.indexOf(data[indexParams.id])))}>Remove from favorite</button>:
+                                        <button className="favBtn" onClick={connect ?handleFav:()=>alert("you need to be connected to do that")}>Add to Favorite</button>
+                                        }
                                 </div>
                             </div>
                         </div>

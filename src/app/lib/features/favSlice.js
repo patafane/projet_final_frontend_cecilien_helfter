@@ -8,7 +8,7 @@ const favSlice = createSlice({
         addFav:(state,action)=>{
             const existingItem = state.value.find((item) => item.name === action.payload.name);
             if (existingItem) {
-                console.log(`${action.payload.name} est déjà dans vos favoris.`)
+                alert(`${action.payload.name} est déjà dans vos favoris.`)
             } else {
                 state.value.push(action.payload)
             }
@@ -21,5 +21,5 @@ const favSlice = createSlice({
         }
     }
 })
-export const {addFav,removeAllFav} = favSlice.actions
+export const {addFav,removeAllFav,removeFromFav} = favSlice.actions
 export default favSlice.reducer
