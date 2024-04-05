@@ -1,23 +1,32 @@
 "use client"
 import "./user.sass"
-import { useSelector } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
 import Link from "next/link"
+import { removeFromFav } from "../lib/features/favSlice"
+import { FaSearch } from "react-icons/fa";
 let Page = ()=>{
     const connect = useSelector((state)=>state.connect.value)
     const fav = useSelector((state)=>state.favorite.value)
+    const darkMode = useSelector((state)=>state.darkMode.value)
+    const dispatch = useDispatch()
     return(
-        <div className="user">
+        <div className={darkMode?"user dark":"user"}>
             {connect ? 
             <div className="content">
-                <h1>Welcome to your profile page</h1>
+                <h1>Here are your favorites bikes</h1>
                 <div className="favoris">
+                    
                     {fav.length === 0 ? <h6>No item in favorite yet</h6> :
                         fav.map((element,index)=>(
-                            <Link key={index} href={"/products/"+element.id}>
                                 <div className="element" key={index}>
-                                    <img src={element.image} alt="" />
+                                        <img src={element.image} alt="" />
+                                        <div className="close">
+                                            <button onClick={()=>dispatch(removeFromFav(index))}>Remove</button>
+                                            <Link key={index} href={"/products/"+element.id}>
+                                                <FaSearch/>
+                                            </Link>
+                                        </div>
                                 </div>
-                            </Link>
                         ))
                     }
                 </div>

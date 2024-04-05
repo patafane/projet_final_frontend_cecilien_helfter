@@ -13,6 +13,7 @@ let Page = ()=>{
     const router = useRouter()
     const dispatch = useDispatch()
     const users = useSelector((state)=>state.users.value)
+    const darkMode = useSelector((state)=>state.darkMode.value)
     let handleSignIn = ()=>{
         if(emailInpt === ""|| userNameInpt === "" || passInpt === ""){
             alert("Please fill all values")
@@ -26,7 +27,7 @@ let Page = ()=>{
         }
     }
     return(
-        <div className="signin">
+        <div className={darkMode?"signin black": "signin"}>
             <div className="content">
                 <div className="form">
                     <h1>Sign In</h1>

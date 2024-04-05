@@ -11,6 +11,7 @@ export default function Home() {
   const [dataFilter,setDataFilter] = useState([])
   const [dataCheck,setDataCheck] = useState(false)
   const random = useSelector((state)=>state.bikes.random)
+  const darkMode = useSelector((state)=>state.darkMode.value)
 useEffect(()=>{
     const url = 'https://api.jsonsilo.com/254364c9-0cfb-44c5-b9db-2faef50250af'
     const options = {
@@ -32,7 +33,7 @@ useEffect(()=>{
   console.log(data);
   console.log(random);
   return (
-    <div className="home">
+    <div className={darkMode ? "home dark" : "home"}>
       <div className="content">
           <div className="carrouWrapper">
             <h2>Discover some of our products</h2>

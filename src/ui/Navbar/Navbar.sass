@@ -37,6 +37,16 @@ nav
     .userInfos
         font-size: 1.3em
         display: flex
+        gap: 10px
+        .darkmodOn, .darkmodOff
+            padding: 5px
+            border: solid 1px black
+            background-color: transparent
+            cursor: pointer
+            border-radius: 5px
+            &:hover
+                background-color: black
+                color: white
         div
             display: flex
             align-items: center
@@ -53,6 +63,26 @@ nav
                 font-size: 0.6em
                 padding-inline: 5px
                 cursor: pointer
+            .logOutBtn
+                padding: 5px
+                border: solid 1px black
+                background-color: transparent
+                border-radius: 5px
+                &:hover
+                    color: white
+                    background-color: black
+                &:active
+                    background-color: white
+            .login
+                padding: 5px
+                border: solid 1px black
+                background-color: transparent
+                border-radius: 5px
+                &:hover
+                    color: white
+                    background-color: black
+                &:active
+                    background-color: white
             .cartBtn
                 display: flex
                 justify-content: center
@@ -64,3 +94,33 @@ nav
                 cursor: pointer
                 &:hover
                     background-color: rgb(138, 138, 138)
+nav.dark
+    background-color: rgb(42, 42, 42)
+    .logo
+        .title
+            h1
+                color: white
+        a
+            color: white
+            border: solid 1px rgb(42, 42, 42)
+        a.active
+            border-bottom: solid 1px white
+    .userInfos
+        .darkmodOn, .darkmodOff
+            color: white
+            border: solid 1px white
+            &:hover
+                background-color: white
+                color: black
+        div
+            a
+                color: white
+                border: solid 2px white
+            .logOutBtn,.login
+                color: white
+                border: solid 1px white
+                &:hover
+                    background-color: white
+                    color: black
+            .cartBtn
+                color: white

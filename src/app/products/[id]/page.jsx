@@ -12,6 +12,7 @@ let Page = ()=>{
     const indexParams = useParams()
     const [data,setData] = useState([])
     const [dataCheck,setDataCheck] = useState(false)
+    const darkMode = useSelector((state)=>state.darkMode.value)
     useEffect(()=>{
         const url = 'https://api.jsonsilo.com/254364c9-0cfb-44c5-b9db-2faef50250af'
         const options = {
@@ -33,7 +34,7 @@ let Page = ()=>{
         console.log(fav)
     }
     return(
-        <div className="singleProduct">
+        <div className={darkMode?"singleProduct dark":"singleProduct"}>
             {data[indexParams.id] ? 
                 <div className="content">
                         <div className="article">
@@ -71,7 +72,7 @@ let Page = ()=>{
                                     </div>
                                 </div>
                                 <div className="btns">
-                                    <button className="addCart" onClick={connect ? ()=>{dispatch(addCart(data[indexParams.id]))}: ""}>Add to cart</button>
+                                    <button className="addCart" onClick={connect ? ()=>{dispatch(addCart(data[indexParams.id]))}: ()=>alert("please connect to see your cart")}>Add to cart</button>
                                     {fav.includes(data[indexParams.id]) ? 
                                         <button className="favBtn" onClick={()=>dispatch(removeFromFav(fav.indexOf(data[indexParams.id])))}>Remove from favorite</button>:
                                         <button className="favBtn" onClick={connect ?handleFav:()=>alert("you need to be connected to do that")}>Add to Favorite</button>

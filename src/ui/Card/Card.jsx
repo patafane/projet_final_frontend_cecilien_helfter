@@ -8,8 +8,9 @@ import { useSelector } from "react-redux";
 let Card = (props)=>{
     const dispatch = useDispatch()
     const connect = useSelector((state)=>state.connect.value)
+    const darkMode = useSelector((state)=>state.darkMode.value)
     return(
-        <div className="card">
+        <div className={darkMode ? "card dark" : "card"}>
             <div className="imgContainer">
                 <img src={props.article.image} alt="" />
                 <div className={"truc"+" "+props.article.category}>

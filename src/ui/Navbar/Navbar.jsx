@@ -11,10 +11,14 @@ const fontTest = localFont({src:"./../../assets/fonts/Black Streamer.ttf"})
 import { IoCartSharp } from "react-icons/io5"
 import { setActiveTrue,deconect } from "@/app/lib/features/cartSlice";
 import { removeAllFav } from "@/app/lib/features/favSlice";
+import { setDarkModeOff,setDarkModeOn } from "@/app/lib/features/darkModeSlice";
+import { MdDarkMode } from "react-icons/md";
+import { FiSun } from "react-icons/fi";
 let Navbar = ()=>{
     const pathName = usePathname()
     const connect = useSelector((state)=>state.connect.value)
     const cart = useSelector((state)=>state.cart.value)
+    const darkMode = useSelector((state)=>state.darkMode.value)
     const dispatch = useDispatch()
     const router = useRouter()
     const handleDeconect = ()=>{
@@ -24,7 +28,7 @@ let Navbar = ()=>{
             router.push("/")
     }
     return(
-        <nav>
+        <nav className={darkMode ? "dark": ""}>
             <div className="logo">
                 <div className="title">
                     <h1 className={fontTest.className}>&#60;MOLENBIKE&#62;</h1>
@@ -45,11 +49,16 @@ let Navbar = ()=>{
                     <Link href={"/user"}>
                         <CiUser/>
                     </Link>
-                    <button onClick={handleDeconect}>log out</button>
+                    <button className="logOutBtn" onClick={handleDeconect}>log out</button>
                     <button className="cartBtn" onClick={()=>dispatch(setActiveTrue())}><IoCartSharp/> <span>{cart.length}</span></button>
                 </div> : <div>
                     <button className="login" onClick={()=>router.push("/login")}>login</button>
                 </div>}
+                {darkMode ? 
+                    <button className="darkmodOff" onClick={()=>dispatch(setDarkModeOff())}><FiSun/></button>
+                    :
+                    <button className="darkmodOn" onClick={()=>dispatch(setDarkModeOn())}><MdDarkMode/></button>
+                }
             </div>
         </nav>
     )

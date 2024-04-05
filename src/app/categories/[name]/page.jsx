@@ -9,6 +9,7 @@ let Page = ()=>{
     const [data,setData] = useState([])
     const [dataCat,setDataCat] = useState([])
     const [dataCheck,setDataCheck] = useState(false)
+    const darkMode = useSelector((state)=>state.darkMode.value)
     useEffect(()=>{
         const url = 'https://api.jsonsilo.com/254364c9-0cfb-44c5-b9db-2faef50250af'
         const options = {
@@ -28,7 +29,7 @@ let Page = ()=>{
         setDataCat(data.filter(element=>element.category === catName.name))
     },[data])
     return(
-        <div className="singleCat">
+        <div className={darkMode?"singleCat dark":"singleCat"}>
             <div className="content">
                 <h1>{"All "+catName.name}</h1>
                     <div className="shop">

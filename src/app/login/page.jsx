@@ -12,6 +12,7 @@ let Page = ()=>{
     const [passwordValue,setPasswordValue] = useState("")
     const connect = useSelector((state)=>state.connect.value)
     const users = useSelector((state)=>state.users.value)
+    const darkMode = useSelector((state)=>state.darkMode.value)
     const router = useRouter()
     const dispatch = useDispatch()
     let handleGoogleLogin = ()=>{
@@ -30,7 +31,7 @@ let Page = ()=>{
         })
     }
     return(
-        <div className="login">
+        <div className={darkMode ? "loginPage dark":"loginPage"}>
             {
                 connect ? <p>you are already connected</p>
                 :

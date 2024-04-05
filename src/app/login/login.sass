@@ -1,4 +1,8 @@
-.login
+.loginPage
+    min-height: 90vh
+    display: flex
+    justify-content: center
+    align-items: center
     .content
         display: flex
         justify-content: center
@@ -39,6 +43,8 @@
             .signIn
                 span
                     font-size: 0.8em
+                    a
+                        color: blue
             .btns
                 display: flex
                 justify-content: space-between
@@ -64,3 +70,25 @@
                         border-right: solid 2px rgb(219,68,55)
                         border-bottom: solid 2px rgb(244,160,0)
                         border-left: solid 2px rgb(15,157,88) 
+.loginPage.dark
+    background-color: black
+    color: white
+    .form
+        box-shadow: 0px 0px 1em rgb(47, 47, 47)
+    input
+        background-color: transparent
+        border-bottom: solid 2px white !important
+    .loginBtn
+        color: white
+        border: solid 2px white !important
+        &:hover
+            color: black !important
+            background-color: white !important
+    .googleBtn
+        color: white
+        border: solid 2px white !important
+        &:hover
+            border-top: solid 2px rgb(66,133,244) !important
+            border-right: solid 2px rgb(219,68,55) !important
+            border-bottom: solid 2px rgb(244,160,0) !important
+            border-left: solid 2px rgb(15,157,88)  !important

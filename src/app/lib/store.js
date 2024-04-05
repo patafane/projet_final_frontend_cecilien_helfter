@@ -5,6 +5,7 @@ import bikesSlice from "./features/bikesSlice";
 import usersSlice from "./features/usersSlice";
 import cartSlice from "./features/cartSlice";
 import favSlice from "./features/favSlice";
+import darkModeSlice from "./features/darkModeSlice";
 let store = ()=>{
     return configureStore({
         reducer:{
@@ -13,7 +14,8 @@ let store = ()=>{
             bikes: bikesSlice,
             users: usersSlice,
             cart: cartSlice,
-            favorite: favSlice
+            favorite: favSlice,
+            darkMode: darkModeSlice,
         }
     })
 }
